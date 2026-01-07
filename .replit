@@ -1,0 +1,20 @@
+run = "python3 main.py"
+modules = ["python-3.11"]
+
+[deployment]
+deploymentTarget = "autoscale"
+run = ["sh", "-c", "python main.py"]
+
+[[ports]]
+localPort = 3000
+externalPort = 3000
+
+[[ports]]
+localPort = 8080
+externalPort = 80
+
+[nix]
+packages = ["freetype", "glibcLocales", "lcms2", "libimagequant", "libjpeg", "libtiff", "libwebp", "libxcrypt", "openjpeg", "tcl", "tesseract", "tk", "zlib"]
+
+[agent]
+expertMode = true
